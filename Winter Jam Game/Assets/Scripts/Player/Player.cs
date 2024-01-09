@@ -52,7 +52,6 @@ public class Player : Entity
         primaryAttack = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
         counterAttack = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
 
-
     }
 
     protected override void Start()
@@ -63,9 +62,13 @@ public class Player : Entity
 
     protected override void Update()
     {
-        base.Update();
-        stateMachine.currentState.Update();
-        CheckForDashInput();
+        if (!PauseMenu.isPaused)
+        {
+            base.Update();
+            stateMachine.currentState.Update();
+            CheckForDashInput();
+
+        }
     }
 
     public IEnumerator BusyFor (float _seconds)
