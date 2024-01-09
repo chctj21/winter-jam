@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private string[] mapNames = { "Forest", "Cave", "Snow" };
+    private string randomMapName;
     public void StartGame()
     {
-        SceneManager.LoadScene("GameScene");
+        randomMapName = mapNames[Random.Range(0, mapNames.Length)];
+        SceneManager.LoadScene(randomMapName);
     }
 
     public void QuitGame()

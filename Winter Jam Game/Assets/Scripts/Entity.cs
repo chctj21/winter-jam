@@ -17,6 +17,8 @@ public class Entity : MonoBehaviour
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
     public EntityFX fx { get; private set; }
+    public CharacterStats stats { get; private set; }
+    public CapsuleCollider2D cd { get; private set; }
     #endregion
 
     [Header("Knockback info")]
@@ -36,6 +38,8 @@ public class Entity : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         fx = GetComponent<EntityFX>();
+        stats = GetComponent<CharacterStats>();
+        cd = GetComponent<CapsuleCollider2D>();
     }
 
     protected virtual void Update()
@@ -57,7 +61,7 @@ public class Entity : MonoBehaviour
         yield return new WaitForSeconds(0.07f);
         isKnocked = false;
     }
-
+    public System.Action onFlipped;
     #region Collision
     public virtual bool isGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
     public virtual bool isWallDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
@@ -98,6 +102,11 @@ public class Entity : MonoBehaviour
         facingDir = facingDir * -1;
         facingRight = !facingRight;
         transform.Rotate(0, 180, 0);
+        if (onFlipped != null)
+        {
+
+            onFlipped();
+        }
     }
 
     public virtual void FlipController(float _x)
@@ -110,6 +119,12 @@ public class Entity : MonoBehaviour
         {
             Flip();
         }
+
+    }
+
+    public virtual void Die()
+    {
+
     }
     #endregion
 }

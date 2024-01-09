@@ -24,6 +24,8 @@ public class Enemy : Entity
     public float attackCooldown;
     [HideInInspector] public float lastTimeAttacked;
 
+
+    public string lastAnimBoolName {  get; private set; }
     protected override void Awake()
     {
         base.Awake();
@@ -36,6 +38,11 @@ public class Enemy : Entity
         stateMachine.currentState.Update();
     }
 
+    public virtual void AssignLastAnimBoolName(string _AnimBoolName)
+    {
+        lastAnimBoolName = _AnimBoolName;
+
+    }
     public virtual RaycastHit2D IsPlayerDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, 8, whatIsPlayer);
     
     public virtual void OpenCounterAttackWindow()
