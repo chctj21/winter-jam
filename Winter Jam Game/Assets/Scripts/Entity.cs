@@ -10,7 +10,7 @@ public class Entity : MonoBehaviour
     [SerializeField] protected Transform groundCheck;
     [SerializeField] protected float groundCheckDistance;
     [SerializeField] protected Transform wallCheck;
-    [SerializeField] protected float wallCheckDistance;
+    [SerializeField] protected float wallCheckDistance = 0.8f;
     [SerializeField] protected LayerMask whatIsGround;
 
     #region Components

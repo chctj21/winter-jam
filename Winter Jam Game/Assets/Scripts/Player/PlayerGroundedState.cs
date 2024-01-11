@@ -21,7 +21,7 @@ public class PlayerGroundedState : PlayerState
     public override void Update()
     {
         base.Update();
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             stateMachine.ChangeState(player.counterAttack);
         }

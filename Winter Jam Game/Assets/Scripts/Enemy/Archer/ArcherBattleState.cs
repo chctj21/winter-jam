@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonBattleState : EnemyState
+public class ArcherBattleState : EnemyState
 {
-    private Enemy_Skeleton enemy;
+    private Enemy_Archer enemy;
     private Transform player;
     private int moveDir;
-    public SkeletonBattleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string animBoolName, Enemy_Skeleton _enemy) : base(_enemyBase, _stateMachine, animBoolName)
+    public ArcherBattleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string animBoolName, Enemy_Archer _enemy) : base(_enemyBase, _stateMachine, animBoolName)
     {
         this.enemy = _enemy;
     }
+
 
     public override void Enter()
     {
@@ -29,6 +30,10 @@ public class SkeletonBattleState : EnemyState
         if (enemy.IsPlayerDetected())
         {
             stateTimer = enemy.battleTime;
+            if (enemy.IsPlayerDetected().distance < enemy.safeDistance && CanJump())
+            {
+                stateMachine.changeState(enemy.jumpState);
+            }
             if (enemy.IsPlayerDetected().distance < enemy.attackDistance && CanAttack())
             {
 
@@ -39,21 +44,19 @@ public class SkeletonBattleState : EnemyState
         {
             stateMachine.changeState(enemy.idleState);
         }
-        if (Mathf.Abs(player.position.x - enemy.transform.position.x) < 0.25) // skeleton will not move and flip uncontrollably when too close to the player
-                                                                              // 0.25 is an arbitary small number
-        {
-            moveDir = enemy.facingDir;
-        }
-        else if (player.position.x > enemy.transform.position.x)
-        {
-            moveDir = 1;
-        }
-        else if(player.position.x < enemy.transform.position.x)
-        {
-            moveDir = -1;
-        }
+        BattleStateFlipControl();
+    }
 
-        enemy.SetVelocity(enemy.moveSpeed * moveDir, rb.velocity.y);
+    private void BattleStateFlipControl()
+    {
+        if (player.position.x > enemy.transform.position.x && enemy.facingDir == -1)
+        {
+            enemy.Flip();
+        }
+        else if (player.position.x < enemy.transform.position.x && enemy.facingDir == 1)
+        {
+            enemy.Flip();
+        }
     }
 
     private bool CanAttack()
@@ -61,6 +64,20 @@ public class SkeletonBattleState : EnemyState
         if (Time.time > enemy.lastTimeAttacked + enemy.attackCooldown)
         {
             enemy.lastTimeAttacked = Time.time;
+            return true;
+        }
+        return false;
+    }
+
+    private bool CanJump()
+    {
+        if (!enemy.GroundBehind() || enemy.WallBehind())
+        {
+            return false;
+        }
+        if (Time.time >= enemy.lastTimeJumped + enemy.jumpCooldown)
+        {
+            enemy.lastTimeJumped = Time.time;
             return true;
         }
         return false;

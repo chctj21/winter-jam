@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonGroundedState : EnemyState
+public class ArcherGroundedState : EnemyState
 {
-    protected Enemy_Skeleton enemy;
     protected Transform player;
-    public SkeletonGroundedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string animBoolName, Enemy_Skeleton _enemy) : base(_enemyBase, _stateMachine, animBoolName)
+    protected Enemy_Archer enemy;
+    public ArcherGroundedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string animBoolName, Enemy_Archer _enemy) : base(_enemyBase, _stateMachine, animBoolName)
     {
         this.enemy = _enemy;
     }
@@ -31,3 +31,4 @@ public class SkeletonGroundedState : EnemyState
         }
     }
 }
+

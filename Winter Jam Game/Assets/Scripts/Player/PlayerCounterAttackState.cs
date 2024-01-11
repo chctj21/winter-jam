@@ -30,12 +30,16 @@ public class PlayerCounterAttackState : PlayerState
 
         foreach (var hit in colliders)
         {
+            if (hit.GetComponent<Arrow_Controller>() != null)
+            {
+                hit.GetComponent<Arrow_Controller>().FlipArrow();
+                SucessfulCounterAttack();
+            }
             if (hit.GetComponent<Enemy>() != null)
             {
                 if (hit.GetComponent<Enemy>().CanBeStunned())
                 {
-                    stateTimer = 10; //big aribitary number
-                    player.anim.SetBool("SuccessfulCounterAttack", true);
+                    SucessfulCounterAttack();
                 }
             }
         }
@@ -43,5 +47,11 @@ public class PlayerCounterAttackState : PlayerState
         {
             stateMachine.ChangeState(player.idleState);
         }
+    }
+
+    private void SucessfulCounterAttack()
+    {
+        stateTimer = 10; //big aribitary number
+        player.anim.SetBool("SuccessfulCounterAttack", true);
     }
 }

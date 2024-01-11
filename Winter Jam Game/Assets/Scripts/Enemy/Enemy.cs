@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-    public float moveSpeed;
-    public float idleTime;
-    public float battleTime;
+    public float moveSpeed = 1.5f;
+    public float idleTime = 2;
+    public float battleTime = 7;
     [SerializeField] protected LayerMask whatIsPlayer;
     public EnemyStateMachine stateMachine { get; private set; }
 
@@ -20,9 +20,9 @@ public class Enemy : Entity
 
 
     [Header("Attack info")]
-    public float attackDistance;
-    public float attackCooldown;
-    [HideInInspector] public float lastTimeAttacked;
+    public float attackDistance = 2;
+    public float attackCooldown = 0.4f;
+    public float lastTimeAttacked;
 
 
     public string lastAnimBoolName {  get; private set; }
