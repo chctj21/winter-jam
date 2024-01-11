@@ -53,3 +53,6 @@ TagManager:
   - name: Player
     uniqueID: 3601187883
     locked: 0
+  - name: Boss
+    uniqueID: 120190123
+    locked: 0
