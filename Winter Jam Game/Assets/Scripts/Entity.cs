@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -68,7 +69,9 @@ public class Entity : MonoBehaviour
     protected virtual void OnDrawGizmos()
     {
         Gizmos.DrawLine(groundCheck.transform.position, new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
+        Gizmos.color = Color.red;
         Gizmos.DrawLine(wallCheck.transform.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
+        Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(attackCheck.position, attackCheckRadius);
     }
     #endregion
@@ -77,7 +80,7 @@ public class Entity : MonoBehaviour
 
     #region Velocity
     public void SetZeroVelocity()
-    {
+    { 
         if (isKnocked)
         {
             return;

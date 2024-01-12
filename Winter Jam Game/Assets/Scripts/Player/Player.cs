@@ -13,6 +13,8 @@ public class Player : Entity
     [Header("Move info")]
     public float moveSpeed = 12;
     public float jumpForce;
+    public float airVelocity;
+    public float wallJumpDistance = 7;
 
     [Header("Dash info")]
     [SerializeField] private float dashCooldown;
@@ -21,6 +23,7 @@ public class Player : Entity
     public float dashSpeed;
     public float dashDuration;
     public float dashDir {  get; private set; }
+    
      
 
     #region States
@@ -97,8 +100,6 @@ public class Player : Entity
             }
             stateMachine.ChangeState(dashState);
         }
-        
-
     }
 
     public override void Die()

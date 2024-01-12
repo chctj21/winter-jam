@@ -21,6 +21,10 @@ public class PlayerIdleState : PlayerGroundedState
 
     public override void Update()
     {
+        if (player.isGroundDetected()) //prevents the player from randomly sliding
+        {
+            player.SetZeroVelocity();
+        }
         base.Update();
         if (xInput == player.facingDir & player.isWallDetected())
         {

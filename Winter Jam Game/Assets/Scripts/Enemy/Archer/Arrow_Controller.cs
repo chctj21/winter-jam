@@ -29,7 +29,7 @@ public class Arrow_Controller : MonoBehaviour
         rb.isKinematic = true;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         transform.parent = collision.transform;
-        Destroy(gameObject, Random.Range(5, 7));
+        Destroy(gameObject, 1);
     }
 
     // Update is called once per frame
