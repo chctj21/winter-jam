@@ -23,8 +23,8 @@ public class Player : Entity
     public float dashSpeed;
     public float dashDuration;
     public float dashDir {  get; private set; }
-    
-     
+
+    public GameObject gameOverScreen;
 
     #region States
     public PlayerStateMachine stateMachine {  get; private set; }

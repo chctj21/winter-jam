@@ -16,6 +16,7 @@ public class PlayerDeadState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        stateTimer = 1;
     }
 
     public override void Exit()
@@ -27,5 +28,9 @@ public class PlayerDeadState : PlayerState
     {
         base.Update();
         player.SetZeroVelocity();
+        if (stateTimer < 0)
+        {
+            PlayerManager.instance.player.gameOverScreen.SetActive(true);
+        }
     }
 }

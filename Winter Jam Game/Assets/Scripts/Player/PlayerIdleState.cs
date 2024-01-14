@@ -21,7 +21,7 @@ public class PlayerIdleState : PlayerGroundedState
 
     public override void Update()
     {
-        if (player.isGroundDetected()) //prevents the player from randomly sliding
+        if (player.isGroundDetected()) //prevents the player from randomly sliding, think the cause of the sliding is physics of collisions
         {
             player.SetZeroVelocity();
         }
