@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Forest.unity
     guid: 7f6ee01af14384200a6c8d6cf6ae9125
   - enabled: 1
-    path: Assets/Scenes/Cave.unity
-    guid: 20743c5e383fd4adb96971689fed24ba
-  - enabled: 1
     path: Assets/Scenes/Snow.unity
     guid: e3ae1accc0bb14203a5b69bafed6f6e3
+  - enabled: 1
+    path: Assets/Scenes/Cave.unity
+    guid: 20743c5e383fd4adb96971689fed24ba
   - enabled: 1
     path: Assets/Scenes/HowToPlay.unity
     guid: 18311a2c1a3711c42bc2c735055e2b24

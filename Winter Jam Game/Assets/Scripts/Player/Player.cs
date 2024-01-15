@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Entity
 {
@@ -71,6 +73,12 @@ public class Player : Entity
             base.Update();
             stateMachine.currentState.Update();
             CheckForDashInput();
+
+        }
+
+        if (Door.canEnter)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
         }
     }
