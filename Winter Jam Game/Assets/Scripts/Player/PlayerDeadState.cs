@@ -16,7 +16,7 @@ public class PlayerDeadState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        stateTimer = 1;
+        stateTimer = 1f;
     }
 
     public override void Exit()
