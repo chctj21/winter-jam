@@ -6029,6 +6029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db6db774933afd43805ba115bcf6bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverScreen: {fileID: 0}
 --- !u!95 &1797700821
 Animator:
   serializedVersion: 5
@@ -6252,6 +6253,7 @@ MonoBehaviour:
   dashCooldown: 2
   dashSpeed: 25
   dashDuration: 0.2
+  gameOverScreen: {fileID: 0}
 --- !u!4 &1856224830
 Transform:
   m_ObjectHideFlags: 0
@@ -6392,7 +6394,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

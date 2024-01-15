@@ -4933,7 +4933,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   targetLayerName: Player
-  xVelocity: 5
+  arrowDirection: 1
+  xSpeed: 20
   rb: {fileID: 0}
 --- !u!50 &4154144609470466969
 Rigidbody2D:

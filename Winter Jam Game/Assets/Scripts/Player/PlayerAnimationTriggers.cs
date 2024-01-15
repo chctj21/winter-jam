@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAnimationTriggers : MonoBehaviour
 {
     private Player player => GetComponentInParent<Player>();
+    public GameObject gameOverScreen;
 
     private void AnimationTrigger()
     {
@@ -23,5 +24,10 @@ public class PlayerAnimationTriggers : MonoBehaviour
                 hit.GetComponent<CharacterStats>().TakeDamage(player.stats.damage.GetValue());
             }
         }
+    }
+
+    public void ActivateGameOver()
+    {
+        gameOverScreen.SetActive(true);
     }
 }

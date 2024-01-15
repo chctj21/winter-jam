@@ -6,7 +6,8 @@ public class Arrow_Controller : MonoBehaviour
 {
     [SerializeField] private int damage;
     [SerializeField] private string targetLayerName = "Player";
-    [SerializeField] private float xVelocity;
+    public int arrowDirection = 1;
+    [SerializeField] private float xSpeed;
     [SerializeField] private Rigidbody2D rb;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -16,7 +17,7 @@ public class Arrow_Controller : MonoBehaviour
             collision.GetComponent<CharacterStats>().TakeDamage(damage);
             StuckInto(collision);
         }
-        else if(collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             StuckInto(collision);
         }
@@ -39,14 +40,14 @@ public class Arrow_Controller : MonoBehaviour
     }
     void Update()
     {
-            
-        rb.velocity = new Vector2(xVelocity * Enemy_Archer.arrowDirection, rb.velocity.y);
+
+        rb.velocity = new Vector2(arrowDirection * xSpeed, rb.velocity.y);
     }
 
     public void FlipArrow()
     {
 
-        xVelocity = xVelocity * -1;
+        arrowDirection = arrowDirection * -1;
         transform.Rotate(0, 180, 0);
         targetLayerName = "Enemy";
     }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class Enemy_Archer : Enemy
 {
     [Header("Archer Specifics")]
-    public static int arrowDirection;
     public Vector2 jumpVelocity;
     public float jumpCooldown;
     [HideInInspector] public float lastTimeJumped;
@@ -48,7 +47,6 @@ public class Enemy_Archer : Enemy
     protected override void Update()
     {
         base.Update();
-        arrowDirection = facingDir;
         stateMachine.currentState.Update();
     }
 

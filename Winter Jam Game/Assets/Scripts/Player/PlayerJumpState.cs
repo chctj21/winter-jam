@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class PlayerJumpState : PlayerState
@@ -25,6 +26,10 @@ public class PlayerJumpState : PlayerState
         if (rb.velocity.y < 0)
         {
             stateMachine.ChangeState(player.airState);
+        }
+        if(rb.velocity.x == 0)
+        {
+            player.SetVelocity(xInput * player.airVelocity, rb.velocity.y);
         }
     }
 }

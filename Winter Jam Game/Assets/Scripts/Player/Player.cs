@@ -76,7 +76,7 @@ public class Player : Entity
 
         }
 
-        if (Door.canEnter)
+        if (Input.GetKeyDown(KeyCode.Return) && Door.canEnter)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 

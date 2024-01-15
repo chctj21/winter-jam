@@ -11,7 +11,7 @@ public class GameOver : MonoBehaviour
     public void RestartGame()
     {
         randomMapName = mapNames[Random.Range(0, mapNames.Length)];
-        SceneManager.LoadScene(randomMapName);
+        SceneManager.LoadScene("Forest");
     }
 
 }

@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
         fadeScreen.FadeOut();
 
         yield return new WaitForSeconds (_delay);
-        SceneManager.LoadScene(randomMapName);
+        SceneManager.LoadScene("Forest");
 
     }
 
