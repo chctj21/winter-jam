@@ -27,6 +27,7 @@ public class PlayerJumpState : PlayerState
         {
             stateMachine.ChangeState(player.airState);
         }
+        //if player jumps straight up, player can move from side to side, sideways movement in air is less than movement on ground 
         if(rb.velocity.x == 0)
         {
             player.SetVelocity(xInput * player.airVelocity, rb.velocity.y);

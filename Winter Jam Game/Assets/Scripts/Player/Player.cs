@@ -76,6 +76,7 @@ public class Player : Entity
 
         }
 
+        //changes to next scene if player stands in front of door and presses enter
         if (Input.GetKeyDown(KeyCode.Return) && Door.canEnter)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -83,6 +84,7 @@ public class Player : Entity
         }
     }
 
+    //started coroutine on playerPrimaryAttackState script, we want player to be busy for a while after attacking so player cannot immediately move
     public IEnumerator BusyFor (float _seconds)
     {
         isBusy = true;
@@ -93,10 +95,13 @@ public class Player : Entity
     public void AnimationTrigger() => stateMachine.currentState.AnimationFinishTrigger();
     private void CheckForDashInput()
     {
+        //cannot dash when clinging to a wall
         if (isWallDetected())
         {
             return;
         }
+
+        //if player presses left shift, player will enter a dash, implements a dash cooldown
         dashUsageTimer -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.LeftShift) && dashUsageTimer < 0)
         {

@@ -12,6 +12,7 @@ public class PlayerAnimationTriggers : MonoBehaviour
         player.AnimationTrigger();
     }
 
+    //damages all enemies in the hitbox of the player (hitbox is determined by player.attackCheck.position and player.attackCheckRadius)
     private void AttackTrigger()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(player.attackCheck.position, player.attackCheckRadius);

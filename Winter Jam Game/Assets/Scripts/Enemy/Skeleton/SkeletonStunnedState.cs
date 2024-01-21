@@ -22,7 +22,8 @@ public class SkeletonStunnedState : EnemyState
     public override void Exit()
     {
         base.Exit();
-        enemy.fx.Invoke("CancelRedBlink",0); //using invoke instead of a function call, so CancelRedBlink() can remain private
+        //using invoke instead of a function call, so CancelRedBlink() can remain private
+        enemy.fx.Invoke("CancelRedBlink",0);
     }
 
     public override void Update()

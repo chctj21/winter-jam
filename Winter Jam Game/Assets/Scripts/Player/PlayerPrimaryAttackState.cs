@@ -17,8 +17,7 @@ public class PlayerPrimaryAttackState : PlayerState
     {
         base.Enter();
 
-        xInput = 0;
-
+        //player's attack combo will start over if the player finishes a combo or too much time has passed
         if (comboCounter > 2 || Time.time > lastTimeAttacked + comboWindow)
         {
             comboCounter = 0;
@@ -29,6 +28,7 @@ public class PlayerPrimaryAttackState : PlayerState
 
         float attackDir = player.facingDir;
 
+        //allows player to quickly change direction of sucessive attacks
         if (xInput != 0)
         {
             attackDir = xInput;

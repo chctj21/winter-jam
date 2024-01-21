@@ -31,6 +31,7 @@ public class PlayerAirState : PlayerState
         {
             stateMachine.ChangeState(player.idleState); 
         }
+        //allows player to move in air, slower than movement on ground
         player.SetVelocity(xInput * player.airVelocity, rb.velocity.y);
     }
 }

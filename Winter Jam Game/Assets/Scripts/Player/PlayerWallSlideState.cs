@@ -31,6 +31,7 @@ public class PlayerWallSlideState : PlayerState
         
         if (yInput >= 0)
         {
+            //player falls slower while on a wall than when player is in air
             rb.velocity = new Vector2(0, rb.velocity.y * 0.7f);
         }
 

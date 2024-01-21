@@ -39,8 +39,10 @@ public class SkeletonBattleState : EnemyState
         {
             stateMachine.changeState(enemy.idleState);
         }
-        if (Mathf.Abs(player.position.x - enemy.transform.position.x) < 0.25) // skeleton will not move and flip uncontrollably when too close to the player
-                                                                              // 0.25 is an arbitary small number
+        // prevents skeleton from flipping uncontrollably when too close to the player
+        // 0.25 is an arbitary small number
+        if (Mathf.Abs(player.position.x - enemy.transform.position.x) < 0.25) 
+                                                                              
         {
             moveDir = enemy.facingDir;
         }
