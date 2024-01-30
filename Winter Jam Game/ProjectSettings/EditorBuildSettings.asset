@@ -18,8 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Cave.unity
     guid: 20743c5e383fd4adb96971689fed24ba
   - enabled: 1
-    path: Assets/Scenes/Levels/Boss Room.unity
-    guid: dc3b4abccb1d94674b1c080d97f10ef0
+    path: Assets/Scenes/Menus/Victory.unity
+    guid: 6950d916f4c583b4c841aa5ef2029e5f
   - enabled: 1
     path: Assets/Scenes/Menus/HowToPlay.unity
     guid: 18311a2c1a3711c42bc2c735055e2b24

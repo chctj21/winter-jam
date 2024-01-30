@@ -29128,7 +29128,7 @@ Transform:
   m_GameObject: {fileID: 142696893}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.854576, y: -3.1760802, z: -9.363131}
+  m_LocalPosition: {x: 27.644577, y: -3.2860801, z: -9.363131}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32062,7 +32062,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.854576, y: -3.1760802, z: -9.363131}
+  m_LocalPosition: {x: 27.644577, y: -3.2860801, z: -9.363131}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43567,7 +43567,7 @@ Transform:
   m_GameObject: {fileID: 1497753231}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.16, y: 0.24000001, z: 0}
+  m_LocalPosition: {x: 10, y: 0.24000001, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46761,7 +46761,7 @@ MonoBehaviour:
   damage:
     baseValue: 20
   maxHealth:
-    baseValue: 100
+    baseValue: 50
   currentHealth: 0
 --- !u!114 &1957600356
 MonoBehaviour:
@@ -46869,7 +46869,7 @@ MonoBehaviour:
   - {x: 4, y: 1.5}
   counterAttackDuration: 0.2
   moveSpeed: 12
-  jumpForce: 24
+  jumpForce: 22.3
   airVelocity: 4
   wallJumpDistance: 9
   dashCooldown: 2
@@ -46885,7 +46885,7 @@ Transform:
   m_GameObject: {fileID: 1957600354}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.6, y: -0.9, z: 0}
+  m_LocalPosition: {x: 7.19, y: -1.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
